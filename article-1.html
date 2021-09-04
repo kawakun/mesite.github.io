@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <title>positionプロパティとは？使い方をわかりやすく解説！【HTML＆CSS】</title>    <!--記事のタイトル-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="all_stylesheet.css">
+    <link rel="stylesheet" href="article.stylesheet.css">
+    <link rel="stylesheet" href="stylesheet2.css">
+    </head>
+
+
+<!--このページは記事の内容を表示させます-->
+<!--article_sample.html は サンプルです。コピーして使いましょう-->
+
+
+<body>
+    <header>
+        <div class = "header-container">
+
+        <ul>
+        <li class = "header-contents menu">
+            <img src="icon_profile.png" height="100%" width="100%">
+            <a class= "btn"     href="profile.html"></a>
+        </li>
+
+        <li class = "header-contents article">
+            <img src="icon_menu.png" height="100%" width="100%">
+            <a class= "btn"     href="index.html"></a>
+        </li>
+
+        <li class = "header-contents profile">
+            <img src="icon_profile.png" height="100%" width="100%">
+            <a class= "btn"     href="profile.html"></a>
+        </li>
+        </ul>
+
+        </div>
+    </header>
+
+
+
+
+    <div class= "title">
+    <a class= "title-logo" href="index.html">Learn memo</a>
+    </div>
+
+<!--この下に記事を書いていきます------------------------------------------------------------------------------>
+    <div class= "article-container">
+        <div class= "memo">
+    <!--h1タグにタイトルを書きます---------------------->
+            <h1>
+                【HTML CSS】わかりやすいpositionプロパティのまとめ
+
+            </h1>
+        </div>
+    <!--”all-text”クラスに本文を書きます----------------------------------------------------------------------------->
+        <div class = "all-text">
+            <h2>positionプロパティとは？</h2>
+            <p>HTMLによって記述された要素をどのように配置するかを指定するプロパティです。</p>
+            <p>要素の値は４種類あります。</p>
+            <ul>
+                <li>・static</li>
+                <li>・relative</li>
+                <li>・absolute</li>
+                <li>・sticky  <span class="bold">(本記事では扱いません！私も勉強中なので！)</span></li>
+            </ul>
+            <p>position:(ここに値を指定);のように書き、同時にtop,right,bottom,leftプロパティで具体的な位置を指定します。</p>
+            <p>実際にイラストで説明した方が理解しやすいので下のコードをご覧ください。</p>
+            </p>
+<h2>position:static;</h2>
+            <p>下に赤いボックスと青いボックスがあります。これを使って説明していきます。(表示されない場合はResultボタンを押してください)</p>
+            <p>CSSボタンを押してプロパティを確認してみましょう。</p>
+
+            <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="qBjadzJ" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kawakunene/pen/qBjadzJ">
+                </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            <p>赤いボックスの下に青いボックスが連なっていますね。</p>
+            <p>あれ？これって普通に表示するのと何が違うの？そうなんです。<span class="bold">
+                実はstaticは標準値で、positionプロパティを指定しない場合は自動的にこの値になります。</span></p>
+                <p>前述した<span class="bold">top,right,bottom,leftプロパティはstaticだと指定できない</span>ため次項で説明します。</p>
+            <p>実際に上のコードを編集して、positionプロパティを削除してもResultの表示は何も変わらないことがわかります。(もし違うコードを消してしまったらブラウザをリロードすることで元に戻ります！)
+            </p>
+
+<h2>position:relative;</h2>
+        <p>ここからが本題です。いま
+                <span class="red">赤いボックス</span>は
+                <span class="bold">relative</span>
+            に値が設定されています。下のコードを見て確認してみましょう。(青いボックスはstaticのままで何も変化していません。）</p>
+        <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="MWojadz" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kawakunene/pen/MWojadz">
+                </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+        　  <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <p class ="bold">赤いボックスがかなり動いています！</p>
+        <p>厳密には<span class ="red">赤いボックス</span>の元々の位置からtopプロパティとleftプロパティによってどれだけ動くのか指定され、結果としてボックスの位置が動いています。
+        </p>
+        <p><span class="bold">relative</span>に指定すると<span class="bold">その要素の元々あった位置を基準
+        </span>としてその要素を動かすことができます。</p>
+        <p>top(上)right(右)bottom(下)left(左)プロパティについている単位は<span class="bold">ピクセル(px)</span>と言います。使える単位は他にもありますがここでは省略します。
+        </p>
+        <p>これらのプロパティを指定することで元々の位置から何px分ボックスをずらすか指定しており、実際にコードからtopプロパティとleftプロパティを削除すると値が指定されていないので元の位置(staticと同様)に戻ります。</p>
+        <p>つまり、<span class="bold">relative</span>にしただけですとその位置から全く動かないので<span class ="bold">top,right,bottom,leftプロパティ</span>で動く値を指定しましょう。</p>
+
+
+
+
+
+<h2>position:absolute;</h2>
+            <p>次はabsoluteの説明です。</p>
+            <p>先ほどとは状況が異なり、<span class="blue">青いボックス</span>が<span class="red">赤いボックス</span>の中に内包されています。赤いボックスが親要素となっている状態です。視覚的にわかりやすいように少し赤いボックスのサイズを大きくしてみました。実際にHTMLを確認してみてください。</p>
+            <p>また、<span class="red">赤いボックス</span>はrelative、<span class="blue">青いボックス</span>は<span class="bold">absolute</span>に値が設定されています。</p>
+
+
+
+            <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="BaZLjwV" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kawakunene/pen/BaZLjwV">
+                </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <p>一見どうなっているのかよくわかりませんね。</p>
+            <p><span class="blue">青いボックス</span>に指定されているtopプロパティとleftプロパティを消してみましょう。すると、青いボックスの動く前の元々の位置が分かります。</p>
+            <p><span class="blue">青いボックス</span>が<span class="red">赤いボックス</span>の中に入りました。大きさが違うので赤いボックスがはみ出していますが大きさが同じだと完全に覆い被さります。</p>
+            <p><span class="bold">absolute</span>は<span class="bold">その要素から一番近い親要素を基準</span>としてその要素を動かすことができます。一番近いというのはHTMLコードの中でその要素の親要素、そしてその親要素といった構造の話であって実際の距離は関係ありません。上のコードでは<span class="red">赤いボックス</span>を基準としてtop,right,bottom,leftプロパティの値を指定して<span class="blue">青いボックス</span>を動かしています。
+            </p>
+            <p class="bold">注意点としてabsoluteを指定する要素の親要素にはposition:static;以外を指定する必要があります。</p>
+            <p class="bold">またabsoluteを指定した要素はその場から浮いたようになり<span class="bold">高さ(height)がなくなります。</span>
+                </p>
+
+            <p>　</p>
+            <p><span class="blue">青いボックス</span>がposition:relative;</p>
+            <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="rNwMeOM" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/kawakunene/pen/rNwMeOM">
+            </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <p><span class="blue">青いボックス</span>がposition:absolute;</p>
+            <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="ExXgKgm" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+            <span>See the Pen <a href="https://codepen.io/kawakunene/pen/ExXgKgm">
+            </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+            <p>上の二つのコードでは<span class="red">赤いボックス</span>のheightが設定されていません。
+        <p>子要素をrelativeにしていた場合、元々<span class="blue">青いボックス</span>があった場所にその分の高さが残ります。しかし、子要素をabsoluteにしていると<span class="blue">青いボックス</span>は浮き上がったように元々の位置の高さがなくなり親要素の<span class="red">赤いボックス</span>は子要素の分の高さを保てなくなります。なので<span class="yellow-text">黄色いボックス</span>が上に詰められて配置されてしまいます。
+        </p>
+            <p class="bold">このようにposition:absolute;は思わぬレイアウト崩れを招くので注意です！私はこの仕様を知らず大変なことになりました！</p>
+
+
+
+<h2>position:fixed;</h2>
+            <p class="bold">まずはResult画面をスクロールしてみてください！</p>
+
+            <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="abwmNRY" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+                <span>See the Pen <a href="https://codepen.io/kawakunene/pen/abwmNRY">
+                </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+            <p><span class="red">赤いボックス</span>がスクロールしてもずっと同じ位置で固定されています。</p>
+                <p>このような挙動を可能にするのが<span class="bold">fixed</span>です。指定された要素は<span class="bold">ウインドウの左上を基準</span>にtop,right,bottom,leftプロパティを指定することで位置を決めています。
+                </p>
+                <p class="bold">また、fixedもabsoluteと同様に浮き上がり元々その要素のあった分の高さがなくなります！気をつけてください！</p>
+
+
+<h2>おまけ z-index</h2>
+            <p>z-indexプロパティは要素の重なり順を指定します。</p>
+            <p>また、<span class="bold">z-indexプロパティはposition:static;以外の値の要素にしか使えません。</span>
+            </p>
+            <p>試しに下のコードのそれぞれのz-indexプロパティの値を編集してみるとどのようになるかわかりやすいです。z-indexプロパティの値には<span class="bold">整数</span>を入れます。単位もつけません。値の数が大きい方がより手前に配置されます。</p>
+            <p class="codepen" data-height="300" data-default-tab="css,result" data-slug-hash="KKqgMdq" data-editable="true" data-user="kawakunene" style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
+        <span>See the Pen <a href="https://codepen.io/kawakunene/pen/KKqgMdq">
+        </a> by nene (<a href="https://codepen.io/kawakunene">@kawakunene</a>)
+        on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+
+<h2>まとめ</h2>
+            <p>以上がpositionプロパティのまとめとなります！positionプロパティは奥が深くまだまだ伝えきれていないことがたくさんあると思いますが、とりあえず<span class="bold">position:absolute;と:fixed;に気をつけろ</span>ということが伝わっていれば嬉しいです。まだまだ勉強足らずの未熟な記事ですが最後まで読んでいただきありがとうございました！</p>
+
+            
+        </div>
+    <!--本文はここまで----------------------------------------------------------------------------------------------->
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <ul>
+            <li><a href="index.html">記事一覧</a>
+            </li>
+            <li><a href="profile.html">プロフィール</a>
+    
+            </li>
+            </ul>
+            
+    
+        </div>
+    
+
+
+    </footer>
+
+</body>
+</html>
